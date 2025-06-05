@@ -16,8 +16,8 @@ const SponsorSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sponsorOptions.map((option, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-background p-6 rounded-lg shadow-lg border border-primary/20 
                          hover:border-primary transition-all duration-300 transform 
                          hover:-translate-y-2"
@@ -25,8 +25,8 @@ const SponsorSection: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2 text-primary">{option.type}</h3>
               <p className="text-2xl font-bold mb-4">{option.price}</p>
               <p className="text-text-secondary mb-4">{option.description}</p>
-              <a 
-                href={`https://livepix.gg/reactanimepro${option.type.toLowerCase()}`}
+              <a
+                href="https://livepix.gg/reactanimepro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-block w-full text-center"
@@ -42,10 +42,10 @@ const SponsorSection: React.FC = () => {
             Todos os patrocinadores terão seu nome mencionado durante as transmissões e nos vídeos gravados.
             Patrocinadores VIP recebem benefícios exclusivos!
           </p>
-          <a 
-            href="https://livepix.gg/reactanimepro" 
-            className="btn-primary" 
-            target="_blank" 
+          <a
+            href="https://livepix.gg/reactanimepro"
+            className="btn-primary"
+            target="_blank"
             rel="noopener noreferrer"
           >
             Seja um Patrocinador VIP
