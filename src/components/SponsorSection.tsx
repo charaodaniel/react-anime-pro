@@ -2,11 +2,50 @@ import React from 'react';
 
 const SponsorSection: React.FC = () => {
   const sponsorOptions = [
-    { type: 'Animes', price: 'R$ 5,00 por episódio', description: 'Patrocine sua série de anime favorita' },
-    { type: 'Filmes', price: 'R$ 50,00 por filme', description: 'Garanta a exibição do seu filme favorito' },
-    { type: 'Desenhos', price: 'R$ 4,00 por episódio', description: 'Desenhos animados ocidentais e mais' },
-    { type: 'Séries', price: 'R$ 15,00 por episódio', description: 'Suas séries live-action favoritas' },
-    { type: 'Mangá/Manhwa/HQ', price: 'R$ 3,00 por capítulo', description: 'Conteúdo de leitura comentado' },
+    {
+      type: 'Animes',
+      custom: (
+        <>
+          <h3 className="text-xl font-semibold mb-2 text-primary">Animes</h3>
+          <p className="text-2xl font-bold mb-4">💸 R$ 4 por episódio / R$ 45 por temporada</p>
+          <p className="text-text-secondary mb-4">
+            Até <strong>13 episódios</strong> ou <strong>24 episódios</strong> por <strong>R$ 70</strong> 💸
+          </p>
+          <p className="text-center text-red-500 font-bold mb-4">
+            📢{' '}
+            <a
+              href="https://livepix.gg/reactanimepro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-red-600 transition"
+            >
+              Clique aqui e patrocine
+            </a>{' '}
+            📢
+          </p>
+        </>
+      ),
+    },
+    {
+      type: 'Filmes',
+      price: 'R$ 30,00 por filme',
+      description: 'Garanta a exibição do seu filme favorito',
+    },
+    {
+      type: 'Desenhos',
+      price: 'R$ 3,00 por episódio',
+      description: 'Desenhos animados ocidentais e mais',
+    },
+    {
+      type: 'Séries',
+      price: 'R$ 7,00 por episódio',
+      description: 'Suas séries live-action favoritas',
+    },
+    {
+      type: 'Mangá/Manhwa/HQ',
+      price: 'R$ 3,00 por capítulo',
+      description: 'Conteúdo de leitura comentado',
+    },
   ];
 
   return (
@@ -22,17 +61,23 @@ const SponsorSection: React.FC = () => {
                          hover:border-primary transition-all duration-300 transform 
                          hover:-translate-y-2"
             >
-              <h3 className="text-xl font-semibold mb-2 text-primary">{option.type}</h3>
-              <p className="text-2xl font-bold mb-4">{option.price}</p>
-              <p className="text-text-secondary mb-4">{option.description}</p>
-              <a
-                href="https://livepix.gg/reactanimepro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary inline-block w-full text-center"
-              >
-                Patrocinar {option.type}
-              </a>
+              {option.custom ? (
+                option.custom
+              ) : (
+                <>
+                  <h3 className="text-xl font-semibold mb-2 text-primary">{option.type}</h3>
+                  <p className="text-2xl font-bold mb-4">{option.price}</p>
+                  <p className="text-text-secondary mb-4">{option.description}</p>
+                  <a
+                    href="https://livepix.gg/reactanimepro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary inline-block w-full text-center"
+                  >
+                    Patrocinar {option.type}
+                  </a>
+                </>
+              )}
             </div>
           ))}
         </div>
