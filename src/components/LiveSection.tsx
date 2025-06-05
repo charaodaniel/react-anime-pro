@@ -12,7 +12,7 @@ const LiveSection: React.FC = () => {
             <h3 className="text-xl font-semibold mb-4 text-primary">Twitch Stream</h3>
             <div className="aspect-video w-full">
               <iframe
-                src="https://player.twitch.tv/?channel=oirobson&parent=hhttps://vercel.com/daniel-charao-machados-projects/react-anime-pro/6C4uNEugn1K9yAWSQtSuPng5oJJb/&autoplay=false&muted=true&theme=dark"
+                src="https://player.twitch.tv/?channel=oirobson&parent=react-anime-pro.vercel.app&autoplay=false&muted=true&theme=dark"
                 frameBorder="0"
                 allowFullScreen={true}
                 scrolling="no"
@@ -34,7 +34,7 @@ const LiveSection: React.FC = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/watch?v=D0apESlc6Ms"
+                src="https://www.youtube.com/embed/D0apESlc6Ms"
                 title="YouTube Video Player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
