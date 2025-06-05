@@ -4,6 +4,7 @@ export interface Content {
   episodes: string;
   sponsor: string;
   status: 'completed' | 'watching' | 'queue';
+  audio?: string;
 }
 
 export interface ContentCardProps {

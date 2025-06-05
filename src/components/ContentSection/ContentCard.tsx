@@ -23,7 +23,10 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
       </div>
       
       <div className="text-text-secondary mb-3">
-        <p>{content.type} {content.episodes && `• ${content.episodes} episódio(s)`}</p>
+        <p>
+          {content.type} {content.episodes && `• ${content.episodes}`}
+          {content.audio && ` • ${content.audio}`}
+        </p>
       </div>
       
       {content.sponsor && (
@@ -37,4 +40,4 @@ const ContentCard: React.FC<ContentCardProps> = ({ content }) => {
   );
 };
 
-export default ContentCard;
+export default ContentCard
