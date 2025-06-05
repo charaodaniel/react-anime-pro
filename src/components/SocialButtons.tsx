@@ -6,7 +6,7 @@ const SocialButtons: React.FC = () => {
     <div className="fixed right-5 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
       <div className="flex flex-col items-center space-y-4">
         <a
-          href="https://chat.whatsapp.com/KeB7rxgP7OJKyzveQBKlZY"
+          href="https://chat.whatsapp.com/DQ3O6QPqgdXJSpQsSk5JLR"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#25D366] text-white hover:bg-[#128C7E]"
