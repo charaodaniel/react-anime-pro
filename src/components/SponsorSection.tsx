@@ -1,4 +1,4 @@
-import { MonitorPlay, Video, Film, BookText, Tv, Palette } from "lucide-react";
+import React from 'react';
 
 export const categories = [
   {
@@ -6,7 +6,7 @@ export const categories = [
     custom: (
       <>
         <h3 className="text-xl font-bold mb-2 text-yellow-400 flex items-center gap-2">
-          <MonitorPlay size={20} /> Animes
+          🎥 Animes
         </h3>
         <p className="text-white text-2xl font-bold mb-2">
           R$ 4 por episódio / R$ 45 por temporada
@@ -30,7 +30,7 @@ export const categories = [
     custom: (
       <>
         <h3 className="text-xl font-bold mb-2 text-yellow-400 flex items-center gap-2">
-          <Film size={20} /> Filmes
+          🎬 Filmes
         </h3>
         <p className="text-white text-2xl font-bold mb-2">R$ 30,00 por filme</p>
         <p className="text-gray-300 mb-4">
@@ -50,7 +50,7 @@ export const categories = [
     custom: (
       <>
         <h3 className="text-xl font-bold mb-2 text-yellow-400 flex items-center gap-2">
-          <Palette size={20} /> Desenhos
+          🎨 Desenhos
         </h3>
         <p className="text-white text-2xl font-bold mb-2">R$ 3,00 por episódio</p>
         <p className="text-gray-300 mb-4">
@@ -70,7 +70,7 @@ export const categories = [
     custom: (
       <>
         <h3 className="text-xl font-bold mb-2 text-yellow-400 flex items-center gap-2">
-          <Tv size={20} /> Séries
+          📺 Séries
         </h3>
         <p className="text-white text-2xl font-bold mb-2">R$ 7,00 por episódio</p>
         <p className="text-gray-300 mb-4">Suas séries live-action favoritas</p>
@@ -88,7 +88,7 @@ export const categories = [
     custom: (
       <>
         <h3 className="text-xl font-bold mb-2 text-yellow-400 flex items-center gap-2">
-          <BookText size={20} /> Mangá/Manhwa/HQ
+          📖 Mangá/Manhwa/HQ
         </h3>
         <p className="text-white text-2xl font-bold mb-2">R$ 3,00 por capítulo</p>
         <p className="text-gray-300 mb-4">Conteúdo de leitura comentado</p>
