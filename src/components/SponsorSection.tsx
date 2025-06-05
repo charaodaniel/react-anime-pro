@@ -10,19 +10,19 @@ const SponsorSection: React.FC = () => {
     },
     {
       type: 'Filmes',
-      price: 'R$ 50,00 por filme',
+      price: 'R$ 30,00 por filme',
       description: 'Garanta a exibição do seu filme favorito',
       link: 'https://livepix.gg/reactanimepro',
     },
     {
       type: 'Desenhos',
-      price: 'R$ 4,00 por episódio',
+      price: 'R$ 3,00 por episódio',
       description: 'Desenhos animados ocidentais e mais',
       link: 'https://livepix.gg/reactanimepro',
     },
     {
       type: 'Séries',
-      price: 'R$ 15,00 por episódio',
+      price: 'R$ 7,00 por episódio',
       description: 'Suas séries live-action favoritas',
       link: 'https://livepix.gg/reactanimepro',
     },
