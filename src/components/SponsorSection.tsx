@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const categories = [
+export const SponsorSection = [
   {
     type: "Animes",
     custom: (
@@ -102,3 +102,4 @@ export const categories = [
     ),
   },
 ];
+export default SponsorSection;
