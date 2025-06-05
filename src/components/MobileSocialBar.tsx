@@ -6,7 +6,7 @@ const MobileSocialBar: React.FC = () => {
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-card z-40">
       <div className="flex justify-around items-center py-2">
         <a
-          href="https://wa.me/5500000000000"
+          href="https://chat.whatsapp.com/KeB7rxgP7OJKyzveQBKlZY"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#25D366] p-2"
@@ -16,7 +16,7 @@ const MobileSocialBar: React.FC = () => {
         </a>
         
         <a
-          href="https://instagram.com/username"
+          href="https://www.instagram.com/reactanimepro/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#E1306C] p-2"
@@ -26,7 +26,7 @@ const MobileSocialBar: React.FC = () => {
         </a>
         
         <a
-          href="https://youtube.com/c/username"
+          href="https://www.youtube.com/@ReactAnimePro"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#FF0000] p-2"
@@ -36,7 +36,7 @@ const MobileSocialBar: React.FC = () => {
         </a>
         
         <a
-          href="https://twitch.tv/username"
+          href="https://www.twitch.tv/oirobson"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#9146FF] p-2"
@@ -46,7 +46,7 @@ const MobileSocialBar: React.FC = () => {
         </a>
         
         <a
-          href="https://discord.gg/invite"
+          href="https://discord.com/invite/xDhNaEsBmA"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#5865F2] p-2"

@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
             Ao Vivo
           </a>
           <a
-            href="https://example.com/patrocinar"
+            href="https://livepix.gg/reactanimepro"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
             Ao Vivo
           </a>
           <a
-            href="https://example.com/patrocinar"
+            href="https://livepix.gg/reactanimepro"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-center"
