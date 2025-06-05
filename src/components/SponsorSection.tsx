@@ -26,7 +26,7 @@ const SponsorSection: React.FC = () => {
               <p className="text-2xl font-bold mb-4">{option.price}</p>
               <p className="text-text-secondary mb-4">{option.description}</p>
               <a 
-                href={`https://livepix.gg/reactanimepro/${option.type.toLowerCase()}`}
+                href={`https://livepix.gg/reactanimepro${option.type.toLowerCase()}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-block w-full text-center"
