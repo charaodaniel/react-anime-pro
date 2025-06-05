@@ -34,7 +34,7 @@ const LiveSection: React.FC = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/@ReactAnimePro"
+                src="https://www.youtube.com/watch?v=D0apESlc6Ms"
                 title="YouTube Video Player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
