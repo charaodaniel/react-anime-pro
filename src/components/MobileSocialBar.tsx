@@ -1,5 +1,6 @@
 import React from 'react';
-import { Instagram, Youtube, MessageCircle, Twitch, MessageSquare } from 'lucide-react';
+import { Instagram, Youtube, MessageCircle, Twitch } from 'lucide-react';
+import { FaDiscord } from 'react-icons/fa'; // ← Ícone oficial do Discord
 
 const MobileSocialBar: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const MobileSocialBar: React.FC = () => {
         >
           <MessageCircle size={24} />
         </a>
-        
+
         <a
           href="https://www.instagram.com/reactanimepro/"
           target="_blank"
@@ -24,7 +25,7 @@ const MobileSocialBar: React.FC = () => {
         >
           <Instagram size={24} />
         </a>
-        
+
         <a
           href="https://www.youtube.com/@ReactAnimePro"
           target="_blank"
@@ -34,7 +35,7 @@ const MobileSocialBar: React.FC = () => {
         >
           <Youtube size={24} />
         </a>
-        
+
         <a
           href="https://www.twitch.tv/oirobson"
           target="_blank"
@@ -44,7 +45,7 @@ const MobileSocialBar: React.FC = () => {
         >
           <Twitch size={24} />
         </a>
-        
+
         <a
           href="https://discord.com/invite/xDhNaEsBmA"
           target="_blank"
@@ -52,7 +53,7 @@ const MobileSocialBar: React.FC = () => {
           className="text-[#5865F2] p-2"
           aria-label="Discord"
         >
-          <MessageSquare size={24} />
+          <FaDiscord size={24} />
         </a>
       </div>
     </div>
