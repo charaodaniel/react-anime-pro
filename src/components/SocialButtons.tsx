@@ -6,7 +6,7 @@ const SocialButtons: React.FC = () => {
     <div className="fixed right-5 top-1/2 transform -translate-y-1/2 z-40 hidden md:block">
       <div className="flex flex-col items-center space-y-4">
         <a
-          href="https://wa.me/5500000000000"
+          href="https://chat.whatsapp.com/KeB7rxgP7OJKyzveQBKlZY"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#25D366] text-white hover:bg-[#128C7E]"
@@ -16,7 +16,7 @@ const SocialButtons: React.FC = () => {
         </a>
         
         <a
-          href="https://instagram.com/username"
+          href="https://www.instagram.com/reactanimepro/"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#E1306C] text-white hover:bg-[#C13584]"
@@ -26,7 +26,7 @@ const SocialButtons: React.FC = () => {
         </a>
         
         <a
-          href="https://youtube.com/c/username"
+          href="https://www.youtube.com/@ReactAnimePro"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#FF0000] text-white hover:bg-[#CC0000]"
@@ -36,7 +36,7 @@ const SocialButtons: React.FC = () => {
         </a>
         
         <a
-          href="https://twitch.tv/username"
+          href="https://www.twitch.tv/oirobson"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#9146FF] text-white hover:bg-[#7829CC]"
@@ -46,7 +46,7 @@ const SocialButtons: React.FC = () => {
         </a>
         
         <a
-          href="https://discord.gg/invite"
+          href="https://discord.com/invite/xDhNaEsBmA"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#5865F2] text-white hover:bg-[#4752C4]"
