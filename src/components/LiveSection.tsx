@@ -12,7 +12,7 @@ const LiveSection: React.FC = () => {
             <h3 className="text-xl font-semibold mb-4 text-primary">Twitch Stream</h3>
             <div className="aspect-video w-full">
               <iframe
-                src="https://player.twitch.tv/?channel=oirobson&parent=127.0.0.1&autoplay=false&muted=true&theme=dark"
+                src="https://player.twitch.tv/?channel=oirobson&parent=https://react-anime-pro.vercel.app/&autoplay=false&muted=true&theme=dark"
                 frameBorder="0"
                 allowFullScreen={true}
                 scrolling="no"
@@ -34,7 +34,7 @@ const LiveSection: React.FC = () => {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/videoseries?list=UU_x5XG1OV2P6uZZ5FSM9Ttw"
+                src="https://youtu.be/D0apESlc6Ms?si=a9-6ib5rrlacFxFW"
                 title="YouTube Video Player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -54,7 +54,7 @@ const LiveSection: React.FC = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="https://twitch.tv/username" 
+              href="https://twitch.tv/oirobson" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary"
@@ -62,7 +62,7 @@ const LiveSection: React.FC = () => {
               Seguir na Twitch
             </a>
             <a 
-              href="https://youtube.com/c/username" 
+              href="https://www.youtube.com/@ReactAnimePro/featured" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn-secondary"
