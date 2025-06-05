@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
             Seu nome será eternizado nas transmissões e vídeos.
           </p>
           <a 
-            href="https://example.com/patrocinar" 
+            href="https://livepix.gg/reactanimepro" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-primary text-lg"
