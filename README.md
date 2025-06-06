@@ -22,10 +22,10 @@ Uma plataforma web moderna para criadores de conteúdo de anime se conectarem co
 ## 📦 Instalação
 
 1. Clone o repositório
-   ```bash
-(https://github.com/charaodaniel/react-anime-pro.git)
-```
-2. Instale as dependências:
+   '''bash
+   https://github.com/charaodaniel/react-anime-pro.git
+   '''bash
+3. Instale as dependências:
 ```bash
 npm install
 ```
