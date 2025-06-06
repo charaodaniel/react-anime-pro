@@ -17,7 +17,7 @@ const MobileSocialBar: React.FC = () => {
         </a>
 
         <a
-          href="https://www.instagram.com/reactanimepro/"
+          href="https://www.instagram.com/oirobson_/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#E1306C] p-2"
