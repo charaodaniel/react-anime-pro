@@ -22,7 +22,7 @@ const SocialButtons: React.FC = () => {
         </a>
 
         <a
-          href="https://www.instagram.com/reactanimepro/"
+          href="https://www.instagram.com/oirobson_/"
           target="_blank"
           rel="noopener noreferrer"
           className="social-btn bg-[#E1306C] text-white hover:bg-[#C13584]"
