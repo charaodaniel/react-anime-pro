@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
+const youtubeVideos = [
+  'https://www.youtube.com/embed/ABC12345678', // Vídeo 1
+  'https://www.youtube.com/embed/DEF98765432', // Vídeo 2
+  'https://www.youtube.com/embed/GHI45678901', // Vídeo 3
+  'https://www.youtube.com/embed/JKL32165498', // Vídeo 4
+];
 
 const LiveSection: React.FC = () => {
-  const youtubeVideos = [
-    'https://www.youtube.com/embed/ABC12345678', // Exemplo Vídeo 1
-    'https://www.youtube.com/embed/DEF98765432', // Exemplo Vídeo 2
-    'https://www.youtube.com/embed/GHI45678901', // Exemplo Vídeo 3
-    'https://www.youtube.com/embed/JKL32165498', // Exemplo Vídeo 4
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1
-    );
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % youtubeVideos.length);
+    }, 5000); // Troca a cada 5 segundos
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="live" className="py-20 bg-card">
@@ -66,7 +62,7 @@ const LiveSection: React.FC = () => {
           </div>
         </div>
 
-        {/* YouTube Player principal */}
+        {/* Player Fixo do YouTube */}
         <div className="bg-background p-4 rounded-lg shadow-lg mb-12">
           <h3 className="text-xl font-semibold mb-4 text-primary">Último Vídeo no YouTube</h3>
           <div className="aspect-video w-full">
@@ -86,40 +82,33 @@ const LiveSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Carrossel com setas */}
+        {/* Carrossel Automático de Outros Vídeos */}
         <div className="bg-background p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-primary">Outros Vídeos</h3>
 
-          <div className="relative">
-            {/* Botão Anterior */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full shadow-md hover:bg-primary/80"
-            >
-              ←
-            </button>
+          <div className="aspect-video w-full">
+            <iframe
+              width="100%"
+              height="100%"
+              src={youtubeVideos[currentIndex]}
+              title={`YouTube Video ${currentIndex + 1}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-md"
+            ></iframe>
+          </div>
 
-            {/* Vídeo Atual */}
-            <div className="aspect-video w-full">
-              <iframe
-                width="100%"
-                height="100%"
-                src={youtubeVideos[currentIndex]}
-                title={`YouTube Video ${currentIndex + 1}`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="rounded-md"
-              ></iframe>
-            </div>
-
-            {/* Botão Próximo */}
-            <button
-              onClick={handleNext}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full shadow-md hover:bg-primary/80"
-            >
-              →
-            </button>
+          {/* Indicadores */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {youtubeVideos.map((_, index) => (
+              <span
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex ? 'bg-primary' : 'bg-gray-400'
+                }`}
+              ></span>
+            ))}
           </div>
         </div>
 
