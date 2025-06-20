@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const youtubeVideos = [
-  'https://www.youtube.com/embed/ABC12345678', // Vídeo 1
-  'https://www.youtube.com/embed/DEF98765432', // Vídeo 2
-  'https://www.youtube.com/embed/GHI45678901', // Vídeo 3
-  'https://www.youtube.com/embed/JKL32165498', // Vídeo 4
+  'https://www.youtube.com/embed/D0apESlc6Ms',
+  'https://www.youtube.com/embed/ABC12345678',
+  'https://www.youtube.com/embed/DEF98765432',
+  'https://www.youtube.com/embed/GHI45678901',
+  'https://www.youtube.com/embed/JKL32165498',
 ];
 
 const LiveSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleStart, setVisibleStart] = useState(0);
+  const visibleCount = 3; // Quantos players mostrar ao mesmo tempo
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % youtubeVideos.length);
-    }, 5000); // Troca a cada 5 segundos
+  const prev = () => {
+    setVisibleStart((old) => Math.max(0, old - 1));
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+  const next = () => {
+    setVisibleStart((old) =>
+      Math.min(youtubeVideos.length - visibleCount, old + 1)
+    );
+  };
 
   return (
     <section id="live" className="py-20 bg-card">
@@ -62,54 +66,46 @@ const LiveSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Player Fixo do YouTube */}
-        <div className="bg-background p-4 rounded-lg shadow-lg mb-12">
-          <h3 className="text-xl font-semibold mb-4 text-primary">Último Vídeo no YouTube</h3>
-          <div className="w-[320px] h-[180px] mx-auto">
-            <iframe
-              width="100%"
-              height="100%"
-              src={youtubeVideos[currentIndex]}
-              title={`YouTube Video ${currentIndex + 1}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-md"
-            ></iframe>
-          </div>
-
-          <p className="mt-4 text-text-secondary text-sm">
-            Novos vídeos toda semana! Inscreva-se para não perder nenhum conteúdo.
-          </p>
-        </div>
-
-        {/* Carrossel Automático de Outros Vídeos */}
+        {/* Carrossel horizontal */}
         <div className="bg-background p-4 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-primary">Outros Vídeos</h3>
+          <h3 className="text-xl font-semibold mb-4 text-primary">Últimos Vídeos</h3>
 
-          <div className="aspect-video w-full">
-            <iframe
-              width="100%"
-              height="100%"
-              src={youtubeVideos[currentIndex]}
-              title={`YouTube Video ${currentIndex + 1}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-md"
-            ></iframe>
-          </div>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={prev}
+              disabled={visibleStart === 0}
+              className="btn-secondary disabled:opacity-50"
+              aria-label="Vídeo anterior"
+            >
+              &#8592;
+            </button>
 
-          {/* Indicadores */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {youtubeVideos.map((_, index) => (
-              <span
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentIndex ? 'bg-primary' : 'bg-gray-400'
-                }`}
-              ></span>
-            ))}
+            <div className="flex overflow-hidden w-[1000px] space-x-4">
+              {youtubeVideos
+                .slice(visibleStart, visibleStart + visibleCount)
+                .map((videoUrl, idx) => (
+                  <div key={videoUrl} className="w-[320px] h-[180px] flex-shrink-0 rounded-md overflow-hidden shadow">
+                    <iframe
+                      width="320"
+                      height="180"
+                      src={videoUrl}
+                      title={`YouTube Video ${visibleStart + idx + 1}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                ))}
+            </div>
+
+            <button
+              onClick={next}
+              disabled={visibleStart + visibleCount >= youtubeVideos.length}
+              className="btn-secondary disabled:opacity-50"
+              aria-label="Próximo vídeo"
+            >
+              &#8594;
+            </button>
           </div>
         </div>
 
