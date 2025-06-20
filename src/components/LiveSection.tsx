@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 const youtubeVideos = [
   'https://www.youtube.com/embed/D0apESlc6Ms',
-  'https://www.youtube.com/embed/ABC12345678',
-  'https://www.youtube.com/embed/DEF98765432',
-  'https://www.youtube.com/embed/GHI45678901',
-  'https://www.youtube.com/embed/JKL32165498',
+  'https://youtu.be/RDYVXb_HzS0?si=aNUe6KQgq2A1BZzb',
+  'https://youtu.be/fEDaMfSVpeE?si=OoPSf5TjGOedM_MS',
+  'https://youtu.be/GLzMbVfV5_w?si=9JwdassbLPhDs4Mr',
+  'https://youtu.be/GPtz5lR2hDA?si=q6EciCkPf-VaEamd',
 ];
 
 const LiveSection: React.FC = () => {
