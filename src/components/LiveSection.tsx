@@ -65,7 +65,8 @@ const LiveSection: React.FC = () => {
         {/* Player Fixo do YouTube */}
         <div className="bg-background p-4 rounded-lg shadow-lg mb-12">
           <h3 className="text-xl font-semibold mb-4 text-primary">Último Vídeo no YouTube</h3>
-          <div className="aspect-video w-full">
+          <div className="w-[320px] h-[180px] mx-auto">
+
             <iframe
               width="100%"
               height="100%"
