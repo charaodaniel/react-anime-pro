@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
+// 👉 Aqui você edita os vídeos:
 const youtubeVideos = [
-  'https://www.youtube.com/embed/D0apESlc6Ms',
-  'https://www.youtube.com/embed/RDYVXb_HzS0?si=uheHbgDSHStZJNvi',
-  'https://www.youtube.com/embed/ocGI6FQ8wxI?si=u7men7gDs1A95eYT',
-  'https://www.youtube.com/embed/fEDaMfSVpeE?si=rarErjFxdw_tm24I',
-  'https://www.youtube.com/embed/Wk_PB5GSvNo?si=i14qM9NVvKKZL-1r',
+  { id: 'D0apESlc6Ms' },
+  { id: 'RDYVXb_HzS0' },
+  { id: 'ocGI6FQ8wxI' },
+  { id: 'fEDaMfSVpeE' },
+  { id: 'Wk_PB5GSvNo' },
 ];
 
 const LiveSection: React.FC = () => {
-  const visibleCount = 3; // quantos vídeos mostrar de cada vez
+  const visibleCount = 3; // Quantos vídeos aparecem de cada vez no carrossel
   const [visibleStart, setVisibleStart] = useState(0);
+  const [playingVideos, setPlayingVideos] = useState<string[]>([]);
 
   const prev = () => {
     setVisibleStart((old) => (old - 1 + youtubeVideos.length) % youtubeVideos.length);
@@ -20,14 +22,16 @@ const LiveSection: React.FC = () => {
     setVisibleStart((old) => (old + 1) % youtubeVideos.length);
   };
 
-  // Para montar o array circularmente (loop infinito), pegamos os vídeos do índice visível 
-  // e os próximos (circularmente)
   const getVisibleVideos = () => {
     const videos = [];
     for (let i = 0; i < visibleCount; i++) {
       videos.push(youtubeVideos[(visibleStart + i) % youtubeVideos.length]);
     }
     return videos;
+  };
+
+  const handlePlay = (videoId: string) => {
+    setPlayingVideos((prev) => [...prev, videoId]);
   };
 
   const visibleVideos = getVisibleVideos();
@@ -54,9 +58,6 @@ const LiveSection: React.FC = () => {
                 className="rounded-md"
               ></iframe>
             </div>
-            <p className="mt-4 text-text-secondary text-sm">
-              Transmissões ao vivo de segunda a sexta, 19h às 22h.
-            </p>
           </div>
 
           {/* Twitch Chat */}
@@ -76,7 +77,7 @@ const LiveSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Carrossel horizontal com loop infinito */}
+        {/* Carrossel de vídeos YouTube com thumbnails */}
         <div className="bg-background p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-primary">Últimos Vídeos</h3>
 
@@ -90,22 +91,42 @@ const LiveSection: React.FC = () => {
             </button>
 
             <div className="flex overflow-hidden w-[1000px] space-x-4">
-              {visibleVideos.map((videoUrl, idx) => (
-                <div
-                  key={`${videoUrl}-${idx}`}
-                  className="w-[320px] h-[180px] flex-shrink-0 rounded-md overflow-hidden shadow"
-                >
-                  <iframe
-                    width="320"
-                    height="180"
-                    src={videoUrl}
-                    title={`YouTube Video ${visibleStart + idx + 1}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              ))}
+              {visibleVideos.map((video, idx) => {
+                const isPlaying = playingVideos.includes(video.id);
+                return (
+                  <div
+                    key={`${video.id}-${idx}`}
+                    className="w-[320px] h-[180px] flex-shrink-0 rounded-md overflow-hidden shadow relative cursor-pointer"
+                    onClick={() => handlePlay(video.id)}
+                  >
+                    {isPlaying ? (
+                      <iframe
+                        loading="lazy"
+                        width="320"
+                        height="180"
+                        src={`https://www.youtube.com/embed/${video.id}?autoplay=1`}
+                        title={`YouTube Video ${video.id}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    ) : (
+                      <>
+                        <img
+                          src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                          alt={`Thumbnail do vídeo ${video.id}`}
+                          width="320"
+                          height="180"
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white font-bold text-xl">
+                          ▶
+                        </div>
+                      </>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             <button
