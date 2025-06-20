@@ -23,7 +23,6 @@ function App() {
       <SponsorSection />
       <ContentSection />
       <LiveSection />
-      <Navbar />
       <Footer />
     </div>
   );
