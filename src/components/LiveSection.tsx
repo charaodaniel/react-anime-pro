@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const LiveSection: React.FC = () => {
   const youtubeVideos = [
-    'https://www.youtube.com/embed/VIDEO_ID_1',
-    'https://www.youtube.com/embed/VIDEO_ID_2',
-    'https://www.youtube.com/embed/VIDEO_ID_3',
-    'https://www.youtube.com/embed/VIDEO_ID_4',
+    'https://www.youtube.com/embed/ABC12345678', // Exemplo Vídeo 1
+    'https://www.youtube.com/embed/DEF98765432', // Exemplo Vídeo 2
+    'https://www.youtube.com/embed/GHI45678901', // Exemplo Vídeo 3
+    'https://www.youtube.com/embed/JKL32165498', // Exemplo Vídeo 4
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? youtubeVideos.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === youtubeVideos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
     <section id="live" className="py-20 bg-card">
@@ -72,26 +86,40 @@ const LiveSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Carrossel com 4 YouTube Players */}
+        {/* Carrossel com setas */}
         <div className="bg-background p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-primary">Outros Vídeos</h3>
-          <div className="flex overflow-x-auto space-x-4">
-            {youtubeVideos.map((videoUrl, index) => (
-              <div key={index} className="min-w-[300px] flex-shrink-0">
-                <div className="aspect-video">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={videoUrl}
-                    title={`YouTube Video ${index + 1}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="rounded-md"
-                  ></iframe>
-                </div>
-              </div>
-            ))}
+
+          <div className="relative">
+            {/* Botão Anterior */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full shadow-md hover:bg-primary/80"
+            >
+              ←
+            </button>
+
+            {/* Vídeo Atual */}
+            <div className="aspect-video w-full">
+              <iframe
+                width="100%"
+                height="100%"
+                src={youtubeVideos[currentIndex]}
+                title={`YouTube Video ${currentIndex + 1}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-md"
+              ></iframe>
+            </div>
+
+            {/* Botão Próximo */}
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-full shadow-md hover:bg-primary/80"
+            >
+              →
+            </button>
           </div>
         </div>
 
