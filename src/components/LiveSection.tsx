@@ -9,18 +9,28 @@ const youtubeVideos = [
 ];
 
 const LiveSection: React.FC = () => {
+  const visibleCount = 3; // quantos vídeos mostrar de cada vez
   const [visibleStart, setVisibleStart] = useState(0);
-  const visibleCount = 3; // Quantos players mostrar ao mesmo tempo
 
   const prev = () => {
-    setVisibleStart((old) => Math.max(0, old - 1));
+    setVisibleStart((old) => (old - 1 + youtubeVideos.length) % youtubeVideos.length);
   };
 
   const next = () => {
-    setVisibleStart((old) =>
-      Math.min(youtubeVideos.length - visibleCount, old + 1)
-    );
+    setVisibleStart((old) => (old + 1) % youtubeVideos.length);
   };
+
+  // Para montar o array circularmente (loop infinito), pegamos os vídeos do índice visível 
+  // e os próximos (circularmente)
+  const getVisibleVideos = () => {
+    const videos = [];
+    for (let i = 0; i < visibleCount; i++) {
+      videos.push(youtubeVideos[(visibleStart + i) % youtubeVideos.length]);
+    }
+    return videos;
+  };
+
+  const visibleVideos = getVisibleVideos();
 
   return (
     <section id="live" className="py-20 bg-card">
@@ -66,42 +76,41 @@ const LiveSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Carrossel horizontal */}
+        {/* Carrossel horizontal com loop infinito */}
         <div className="bg-background p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-primary">Últimos Vídeos</h3>
 
           <div className="flex items-center space-x-2">
             <button
               onClick={prev}
-              disabled={visibleStart === 0}
-              className="btn-secondary disabled:opacity-50"
+              className="btn-secondary"
               aria-label="Vídeo anterior"
             >
               &#8592;
             </button>
 
             <div className="flex overflow-hidden w-[1000px] space-x-4">
-              {youtubeVideos
-                .slice(visibleStart, visibleStart + visibleCount)
-                .map((videoUrl, idx) => (
-                  <div key={videoUrl} className="w-[320px] h-[180px] flex-shrink-0 rounded-md overflow-hidden shadow">
-                    <iframe
-                      width="320"
-                      height="180"
-                      src={videoUrl}
-                      title={`YouTube Video ${visibleStart + idx + 1}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                ))}
+              {visibleVideos.map((videoUrl, idx) => (
+                <div
+                  key={`${videoUrl}-${idx}`}
+                  className="w-[320px] h-[180px] flex-shrink-0 rounded-md overflow-hidden shadow"
+                >
+                  <iframe
+                    width="320"
+                    height="180"
+                    src={videoUrl}
+                    title={`YouTube Video ${visibleStart + idx + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              ))}
             </div>
 
             <button
               onClick={next}
-              disabled={visibleStart + visibleCount >= youtubeVideos.length}
-              className="btn-secondary disabled:opacity-50"
+              className="btn-secondary"
               aria-label="Próximo vídeo"
             >
               &#8594;
