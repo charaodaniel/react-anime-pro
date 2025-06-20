@@ -66,18 +66,18 @@ const LiveSection: React.FC = () => {
         <div className="bg-background p-4 rounded-lg shadow-lg mb-12">
           <h3 className="text-xl font-semibold mb-4 text-primary">Último Vídeo no YouTube</h3>
           <div className="w-[320px] h-[180px] mx-auto">
-
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/D0apESlc6Ms"
-              title="YouTube Video Player"
+              src={youtubeVideos[currentIndex]}
+              title={`YouTube Video ${currentIndex + 1}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="rounded-md"
             ></iframe>
           </div>
+
           <p className="mt-4 text-text-secondary text-sm">
             Novos vídeos toda semana! Inscreva-se para não perder nenhum conteúdo.
           </p>
