@@ -1,12 +1,20 @@
 import React from 'react';
 
 const LiveSection: React.FC = () => {
+  const youtubeVideos = [
+    'https://www.youtube.com/embed/VIDEO_ID_1',
+    'https://www.youtube.com/embed/VIDEO_ID_2',
+    'https://www.youtube.com/embed/VIDEO_ID_3',
+    'https://www.youtube.com/embed/VIDEO_ID_4',
+  ];
+
   return (
     <section id="live" className="py-20 bg-card">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-center mb-16">Ao Vivo</h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Twitch Player + Chat */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Twitch Player */}
           <div className="bg-background p-4 rounded-lg shadow-lg">
             <h3 className="text-xl font-semibold mb-4 text-primary">Twitch Stream</h3>
@@ -14,7 +22,7 @@ const LiveSection: React.FC = () => {
               <iframe
                 src="https://player.twitch.tv/?channel=oirobson&parent=react-anime-pro.vercel.app&autoplay=false&muted=true&theme=dark"
                 frameBorder="0"
-                allowFullScreen={true}
+                allowFullScreen
                 scrolling="no"
                 height="100%"
                 width="100%"
@@ -27,43 +35,83 @@ const LiveSection: React.FC = () => {
             </p>
           </div>
 
-          {/* YouTube Latest Videos */}
+          {/* Twitch Chat */}
           <div className="bg-background p-4 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4 text-primary">Últimos Vídeos</h3>
+            <h3 className="text-xl font-semibold mb-4 text-primary">Twitch Chat</h3>
             <div className="aspect-video w-full">
               <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/D0apESlc6Ms"
-                title="YouTube Video Player"
+                src="https://www.twitch.tv/embed/oirobson/chat?parent=react-anime-pro.vercel.app"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                scrolling="no"
+                height="100%"
+                width="100%"
+                title="Twitch Chat"
                 className="rounded-md"
               ></iframe>
             </div>
-            <p className="mt-4 text-text-secondary text-sm">
-              Novos vídeos toda semana! Inscreva-se para não perder nenhum conteúdo.
-            </p>
           </div>
         </div>
 
+        {/* YouTube Player principal */}
+        <div className="bg-background p-4 rounded-lg shadow-lg mb-12">
+          <h3 className="text-xl font-semibold mb-4 text-primary">Último Vídeo no YouTube</h3>
+          <div className="aspect-video w-full">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/D0apESlc6Ms"
+              title="YouTube Video Player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-md"
+            ></iframe>
+          </div>
+          <p className="mt-4 text-text-secondary text-sm">
+            Novos vídeos toda semana! Inscreva-se para não perder nenhum conteúdo.
+          </p>
+        </div>
+
+        {/* Carrossel com 4 YouTube Players */}
+        <div className="bg-background p-4 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold mb-4 text-primary">Outros Vídeos</h3>
+          <div className="flex overflow-x-auto space-x-4">
+            {youtubeVideos.map((videoUrl, index) => (
+              <div key={index} className="min-w-[300px] flex-shrink-0">
+                <div className="aspect-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={videoUrl}
+                    title={`YouTube Video ${index + 1}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="rounded-md"
+                  ></iframe>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Redes Sociais */}
         <div className="mt-12 text-center">
           <p className="mb-6 text-text-secondary">
             Siga nas redes sociais para ficar por dentro das próximas lives e lançamentos!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="https://twitch.tv/oirobson" 
-              target="_blank" 
+            <a
+              href="https://twitch.tv/oirobson"
+              target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
               Seguir na Twitch
             </a>
-            <a 
-              href="https://www.youtube.com/@ReactAnimePro/featured" 
-              target="_blank" 
+            <a
+              href="https://www.youtube.com/@ReactAnimePro/featured"
+              target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
